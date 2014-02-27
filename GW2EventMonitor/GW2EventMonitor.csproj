@@ -54,9 +54,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="ViewModels\EventsViewModel.cs" />
+    <Compile Include="Views\EventsView.xaml.cs">
+      <DependentUpon>EventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PropChange.cs" />
     <Compile Include="RelayCommand.cs" />
-    <Compile Include="ViewModel.cs" />
-    <Page Include="MainControl.xaml">
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Page Include="Views\EventsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,13 +81,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainControl.xaml.cs">
+    <Compile Include="Views\MainControl.xaml.cs">
       <DependentUpon>MainControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -102,6 +119,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventDataManager\EventDataManager.csproj">
+      <Project>{d8ce6156-e40a-44c2-9007-01125f990ef0}</Project>
+      <Name>EventDataManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{b84b0776-1f84-4590-afcf-4d89df888ebf}</Project>
+      <Name>Persistance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WorldDataManager\WorldDataManager.csproj">
+      <Project>{afcfcabc-e7a5-4044-bfa8-ea43a43f0195}</Project>
+      <Name>WorldDataManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
