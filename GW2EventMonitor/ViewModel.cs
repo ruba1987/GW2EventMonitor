@@ -59,7 +59,7 @@ namespace GW2EventMonitor
         }
 
         #endregion
-
+         
         #region Commands
         private ICommand _settingsCommand;
 
