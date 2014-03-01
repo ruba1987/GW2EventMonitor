@@ -11,7 +11,7 @@
   <Target Name="Zip" DependsOnTargets="Compile" >  
 	<Message Text="=== Zipping $(Configuration) configuration ===" />
 	<PropertyGroup>
-	  <StringDate>$([System.DateTime]::Now.ToString('yyyyMMdd'))</StringDate>
+	  <StringDate>$([System.DateTime]::Now.ToString('yyyyMMddhhmmss'))</StringDate>
 	</PropertyGroup>
 	<ItemGroup>
 		<DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
