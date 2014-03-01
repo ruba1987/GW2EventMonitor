@@ -16,10 +16,11 @@
 	<ItemGroup>
 		<DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
 	</ItemGroup>
-	<MakeDir Directories="$(BuildDir)_$(StringDate)"/>
+	<RemoveDir Directories="$(BuildDir)"/>
+	<MakeDir Directories="$(BuildDir)"/>
 	<Zip Files="@(DebugApplicationFiles)"
 	  WorkingDirectory="$(ReleaseDir)"
-	  ZipFileName="$(BuildDir)_$(StringDate)\$(StringDate)_GW2EventMonitor.zip"
+	  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitor.zip"
 	  ZipLevel="9" />
   </Target>
 
