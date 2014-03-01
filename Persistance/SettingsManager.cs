@@ -63,6 +63,8 @@ namespace Persistance
             else
                 throw new ArgumentException("Unsupported settings type");
 
+            s.RefreshData();
+
             File.WriteAllText(filePath, JsonConvert.SerializeObject(s, Formatting.Indented));
         }
     }

@@ -30,8 +30,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BitFactory">
+      <HintPath>..\dependencies\BitFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="GwApiNET">
+      <HintPath>..\dependencies\GwApiNET.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\dependencies\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.Build">
+      <HintPath>..\dependencies\RestSharp.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="SLF">
+      <HintPath>..\dependencies\SLF.dll</HintPath>
+    </Reference>
+    <Reference Include="SLF.BitFactoryFacade">
+      <HintPath>..\dependencies\SLF.BitFactoryFacade.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,9 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GwSharp\GwSharp.csproj">
-      <Project>{ab7937f2-ee8f-4b74-b809-6bd88146cbbc}</Project>
-      <Name>GwSharp</Name>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{b84b0776-1f84-4590-afcf-4d89df888ebf}</Project>
+      <Name>Persistance</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

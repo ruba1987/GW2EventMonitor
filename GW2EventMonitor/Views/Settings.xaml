@@ -25,8 +25,9 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
             <Label Content="Select a world" VerticalAlignment="Center"/>
-            <ComboBox  ItemsSource="{Binding Path=Worlds}" SelectedItem="{Binding Path=CurrWorldName, Mode=TwoWay}" Width="120" Height="25" Margin="5"/>
+            <ComboBox ItemsSource="{Binding Path=Worlds}" SelectedItem="{Binding Path=CurrWorldName, Mode=TwoWay}" Width="120" Height="25" Margin="5"/>
         </StackPanel>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding Path=InfoText}"/>
         <Button Grid.Row="3" Grid.Column="3" Content="Save" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=Window}" Margin="5" Height="25"/>
     </Grid>
 </Window>

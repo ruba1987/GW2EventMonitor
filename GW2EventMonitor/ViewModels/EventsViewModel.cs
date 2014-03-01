@@ -96,7 +96,7 @@ namespace GW2EventMonitor.ViewModels
             WatchedEvents = new ObservableCollection<string>();
             if(_es.WatchedEvents != null)
                 _es.WatchedEvents.ForEach(x => WatchedEvents.Add(x));
-            Events = _em.GetEvents("");
+            //Events = _em.GetEvents("");
         }
 
         private void AddExecute()

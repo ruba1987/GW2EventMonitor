@@ -7,5 +7,6 @@ namespace Persistance
 {
     public interface ISettings
     {
+        void RefreshData(object settingsInfo);
     }
 }

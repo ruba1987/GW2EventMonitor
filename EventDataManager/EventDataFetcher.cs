@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GwSharp;
+using GwApiNET;
+using GwApiNET.ResponseObjects;
+using Persistance;
 
 namespace EventDataManager
 {
     public class EventDataFetcher
     {
-        GwWatcher watcher = new GwWatcher();
+        private BasicSettings _be;
+        private SettingsManager _se = new SettingsManager();
         public EventDataFetcher()
         {
-
+            _be = _se.GetSettings(SettingType.Baisc) as BasicSettings;
         }
 
-        public List<String> GetEvents(String worldName)
+        public EntryDictionary<Guid, EventNameEntry> GetEventNames()
         {
-            return null;
+            return GwApi.GetEventNames(_be.WorldID);
+        }
+
+        public async void GetEventNamesAsync()
+        {
+            //var t = GwApi.GetEventsAsync()
         }
     }
 }

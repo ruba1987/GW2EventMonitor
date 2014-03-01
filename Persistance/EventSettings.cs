@@ -14,5 +14,10 @@ namespace Persistance
         {
 
         }
+
+        public void RefreshData(object settingsInfo)
+        {
+            
+        }
     }
 }

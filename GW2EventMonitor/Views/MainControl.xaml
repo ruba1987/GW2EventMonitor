@@ -61,7 +61,7 @@
         <Button x:Name="Settings" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="15,200,265,80" Command="{Binding Path=SettingsCommand}">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Grid>
+                    <Grid Margin="0,1,0,-1">
                         <Ellipse Stroke="Black" StrokeThickness="2" Fill="Purple">
                         </Ellipse>
                         <ContentPresenter HorizontalAlignment="Center"
