@@ -20,12 +20,13 @@ namespace EventDataManager
 
         public EntryDictionary<Guid, EventNameEntry> GetEventNames()
         {
-            return GwApi.GetEventNames(_be.WorldID);
+            return GwApi.GetEventNames();
         }
 
-        public async void GetEventNamesAsync()
+        public async Task<EntryDictionary<Guid, EventNameEntry>> GetEventNamesAsync()
         {
-            //var t = GwApi.GetEventsAsync()
+            var x = await GwApi.GetEventNamesAsync();
+            return x;
         }
     }
 }

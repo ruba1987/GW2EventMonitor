@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using GwApiNET.ResponseObjects;
 
 namespace GW2EventMonitor.ViewModels
 {
@@ -19,6 +20,7 @@ namespace GW2EventMonitor.ViewModels
         private EventSettings _es;
         private BasicSettings _bs;
         private EventDataFetcher _em = new EventDataFetcher();
+        private EntryDictionary<Guid, EventNameEntry> _eventData;
         #endregion
 
         #region Props
@@ -59,6 +61,18 @@ namespace GW2EventMonitor.ViewModels
             }
         }
 
+        private String _loadingMsg;
+
+        public String LoadingMsg
+        {
+            get { return _loadingMsg; }
+            set { 
+                _loadingMsg = value;
+                OnPropertyChanged("LoadingMsg");
+            }
+        }
+
+
         #endregion
 
         #region Commands
@@ -95,8 +109,17 @@ namespace GW2EventMonitor.ViewModels
             AddCommand = new RelayCommand(AddExecute);
             WatchedEvents = new ObservableCollection<string>();
             if(_es.WatchedEvents != null)
-                _es.WatchedEvents.ForEach(x => WatchedEvents.Add(x));
-            //Events = _em.GetEvents("");
+                _es.WatchedEvents.ForEach(x => WatchedEvents.Add(x.Value));
+            LoadAsync();
+        }
+
+        private async void LoadAsync()
+        {
+            LoadingMsg = "Loading Data";
+            _eventData = await _em.GetEventNamesAsync();
+            Events = _eventData.Select(y => y.Value.Name).ToList<String>();
+            Events.Sort();
+            LoadingMsg = "Load Complete";
         }
 
         private void AddExecute()
@@ -106,7 +129,8 @@ namespace GW2EventMonitor.ViewModels
 
         private void SaveExecute(Window w)
         {
-            _es.WatchedEvents = WatchedEvents.ToList<String>();
+            //_es.WatchedEvents = WatchedEvents.ToList<String>();
+            _es.RefreshData(_eventData.Where(x => WatchedEvents.Contains(x.Value.Name)));
             _sm.Save(_es);
             if (w != null)
                 w.Close();
