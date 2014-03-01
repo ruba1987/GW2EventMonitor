@@ -15,7 +15,7 @@ namespace GW2EventMonitor.ViewModels
     public class SettingsViewModel : INotifyPropertyChanged
     {
         #region Fields
-        private WorldManager worldFetch = new WorldManager();
+        private WorldManager _worldFetch = new WorldManager();
         private SettingsManager _sm = new SettingsManager();
         private Persistance.BasicSettings _settings;
         private EntryDictionary<int, WorldNameEntry> _worldData;
@@ -85,7 +85,7 @@ namespace GW2EventMonitor.ViewModels
         private async void LoadAsyncData()
         {
             InfoText = "Loading Data";
-            _worldData = await worldFetch.GetWorldNamesAsync();
+            _worldData = await _worldFetch.GetWorldNamesAsync();
             List<String> worlds = _worldData.Values.Select(x => x.Name).ToList<String>();
             Worlds = worlds.ToArray<String>();
             InfoText = "Load Complete";
@@ -93,8 +93,8 @@ namespace GW2EventMonitor.ViewModels
 
         private void SaveExecute(Window w)
         {
-            _sm.Save(_settings);
             _settings.RefreshData(_worldData.Values.Where(x => x.Name == CurrWorldName));
+            _sm.Save(_settings);
             if (w != null)
                 w.Close();
         }
