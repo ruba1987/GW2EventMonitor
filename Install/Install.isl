@@ -1893,6 +1893,7 @@
 		<col def="S255">Data</col>
 		<row><td>PROJECT_ASSISTANT_DEFAULT_FEATURE</td><td>AlwaysInstall</td></row>
 		<row><td>PROJECT_ASSISTANT_FEATURES</td><td>NonSelectable</td></row>
+		<row><td>_Built</td><td/></row>
 	</table>
 
 	<table name="ISBillBoard">
@@ -3452,7 +3453,7 @@
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>161619603</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>161642516</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>161671188</td></row>
-		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>161638484</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>GW2EventViewer</td><td>0</td><td/><td>161616500</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>161619603</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>161619603</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>161619603</td></row>
@@ -3742,9 +3743,12 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>161619603</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>161619603</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>161621651</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>https://github.com/ruba1987/GW2EventMonitor/</td><td>0</td><td/><td>161642291</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>https://github.com/ruba1987/GW2EventMonitor/</td><td>0</td><td/><td>161622612</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>RuBa</td><td>0</td><td/><td>161662739</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>161646612</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>161636948</td></row>
+		<row><td>ID_STRING6</td><td>1033</td><td>russell.j.baker@gmail.com</td><td>0</td><td/><td>161630868</td></row>
+		<row><td>ID_STRING7</td><td>1033</td><td>https://github.com/ruba1987/GW2EventMonitor/issues</td><td>0</td><td/><td>161669780</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>161619603</td></row>
 	</table>
 
@@ -3853,6 +3857,8 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I2">ISIconIndex</col>
 		<row><td>ARPPRODUCTICON.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\setupicon.ico</td><td>0</td></row>
+		<row><td>_Built1_C5BD26C0A69D4CC58396D9BE69DE7645.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Resources\3xhumed-Mega-Games-Pack-23-Guildwars-1.ico</td><td>0</td></row>
+		<row><td>_Built_2B39CF9EAEBB4E4BB351127ABBA658A0.exe</td><td/><td>&lt;VSSolutionFolder&gt;\Resources\3xhumed-Mega-Games-Pack-23-Guildwars-1.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -3985,7 +3991,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F1AC2431-2E02-4BF3-8143-69E12BC12C68}</td></row>
 		<row><td>ISUSSignature</td><td>{49759A4E-7355-428E-A74B-85870A7DA7D9}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewISToday</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4290,6 +4296,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L0">Value</col>
 		<col def="S255">ISComments</col>
 		<row><td>ALLUSERS</td><td>1</td><td/></row>
+		<row><td>ARPCONTACT</td><td>##ID_STRING6##</td><td/></row>
+		<row><td>ARPHELPLINK</td><td>##ID_STRING7##</td><td/></row>
 		<row><td>ARPINSTALLLOCATION</td><td/><td/></row>
 		<row><td>ARPNOMODIFY</td><td>1</td><td/></row>
 		<row><td>ARPPRODUCTICON</td><td>ARPPRODUCTICON.exe</td><td/></row>
@@ -4359,7 +4367,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{98579A87-029E-4287-90AA-2539BCD1C36D}</td><td/></row>
 		<row><td>ProductName</td><td>GW2EventViewer</td><td/></row>
-		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>0.00.1000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4521,7 +4529,8 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>gw2eventviewer</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>GW2EventMonitor.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built</td><td>gw2eventviewer</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>GW2EventMonitor.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_2B39CF9EAEBB4E4BB351127ABBA658A0.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>GW2EventMonitor.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_C5BD26C0A69D4CC58396D9BE69DE7645.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
