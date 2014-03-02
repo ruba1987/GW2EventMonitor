@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 namespace GW2EventMonitor.ViewModels
-{
+{ 
     public class MainViewModel : INotifyPropertyChanged
     {
         #region fields
