@@ -2,6 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
   <PropertyGroup>
+	<ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
+	<BuildDir>$(WorkingFolder)\Builds</BuildDir>
+	<MSIDir>$(WorkingFolder)\GW2EventMonitorInstaller\bin\Release</MSIDir>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.8</ProductVersion>
@@ -82,12 +85,26 @@
 			ComVisible="false"
 			/>
 	</Target>
+	<Target Name="AfterBuild">
+		<Message Text="=== Zipping $(Configuration) configuration ===" />
+		<PropertyGroup>
+		  <StringDate>$([System.DateTime]::Now.ToString('yyyyMMddhhmmss'))</StringDate>
+		</PropertyGroup>
+		<ItemGroup>
+			<DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
+		</ItemGroup>
+		<RemoveDir Directories="$(BuildDir)"/>
+		<MakeDir Directories="$(BuildDir)"/>
+		<Zip Files="@(DebugApplicationFiles)"
+		  WorkingDirectory="$(ReleaseDir)"
+		  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitor.zip"
+		  ZipLevel="9" />
+	</Target>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.
 	<Target Name="BeforeBuild">
 	</Target>
-	<Target Name="AfterBuild">
-	</Target>
+	
 	-->
 </Project>
