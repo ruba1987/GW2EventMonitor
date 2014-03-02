@@ -2,7 +2,7 @@
 <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
   <PropertyGroup>
     <WorkingFolder>$(MSBuildProjectDirectory)</WorkingFolder>    
-    <Configuration>Release</Configuration>
+    <Configuration>Debug</Configuration>
     <SolutionFile>GW2EventMonitor.sln</SolutionFile>
 	<ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
 	<BuildDir>$(WorkingFolder)\Builds</BuildDir>
