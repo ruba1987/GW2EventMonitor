@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance", "Persistance\Persistance.csproj", "{B84B0776-1F84-4590-AFCF-4D89DF888EBF}"
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Install", "Install\Install.isproj", "{A1416CB2-DEDD-4BA3-8AAF-5E97449166EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D858B5F-C041-4A2E-B030-E7FCD7691223} = {4D858B5F-C041-4A2E-B030-E7FCD7691223}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

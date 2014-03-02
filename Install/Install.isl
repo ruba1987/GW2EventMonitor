@@ -339,7 +339,7 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
-		<row><td>GW2EventMonitor.Primary_output</td><td>{91BB0DE2-7249-4149-B23B-B0B1C6ABAF51}</td><td>INSTALLDIR</td><td>2</td><td/><td>gw2eventmonitor.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>GW2EventMonitor.Primary_output</td><td>{37620F75-48C3-40AC-8B28-58C04A44A808}</td><td>INSTALLDIR</td><td>2</td><td/><td>gw2eventmonitor.primary_outp</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1875,7 +1875,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>gw2eventmonitor.primary_outp</td><td>GW2EventMonitor.Primary_output</td><td>GW2EventMonitor.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;GW2EventMonitor&gt;|Built</td><td>3</td><td/></row>
+		<row><td>gw2eventmonitor.primary_outp</td><td>GW2EventMonitor.Primary_output</td><td>GW2EventMonitor.Primary output</td><td>0</td><td/><td/><td>0</td><td>1</td><td>&lt;GW2EventMonitor&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2020,7 +2020,7 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
-		<row><td>GW2EventMonitor.Primary_output</td><td/><td/><td>_47CB57CF_B224_4704_AD5F_E6A261F86441_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>GW2EventMonitor.Primary_output</td><td/><td/><td>_7BE2E117_426F_40A3_8997_0C050728D1F8_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3991,7 +3991,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F1AC2431-2E02-4BF3-8143-69E12BC12C68}</td></row>
 		<row><td>ISUSSignature</td><td>{49759A4E-7355-428E-A74B-85870A7DA7D9}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewISToday</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewISToday,viewAppFiles</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4443,7 +4443,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="L255">FileName</col>
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
-		<row><td>_Built</td><td>GW2EventMonitor.Primary_output</td><td/><td>gw2eventviewer</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4529,8 +4528,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
-		<row><td>_Built</td><td>gw2eventviewer</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>GW2EventMonitor.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built_2B39CF9EAEBB4E4BB351127ABBA658A0.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
-		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME3##</td><td>GW2EventMonitor.Primary_output</td><td>AlwaysInstall</td><td/><td/><td/><td>_Built1_C5BD26C0A69D4CC58396D9BE69DE7645.exe</td><td>0</td><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">
