@@ -4,7 +4,7 @@
   <?define UpgradeCode = "e17125e8-5c37-4dc1-b89c-b03541a4cbbc"?>
   <?define ProductVersion = "!(bind.FileVersion.GW2EventMonitor.exe)"?>
   <?define ProjectID = "4D858B5F-C041-4A2E-B030-E7FCD7691223"?>
-  
+  <?define Deployment = "$(var.GW2EventMonitor.ProjectDir)\..\dependencies\Deployment"?>
   <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="RuBa" UpgradeCode="$(var.UpgradeCode)">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 		<MediaTemplate />
@@ -67,34 +67,34 @@
   <Fragment>
   <DirectoryRef Id="INSTALLFOLDER">
     <Component Id="cmpD883E62B415FDEF049AE793D6833F540" Guid="{C398333A-58B6-49AD-A15A-77F1B92C1148}">
-      <File Id="fil5C89975FF93DBED423C9865226BBCB5D" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\BitFactory.dll" />
+      <File Id="fil5C89975FF93DBED423C9865226BBCB5D" KeyPath="yes" Source="$(var.Deployment)\BitFactory.dll" />
     </Component>
     <Component Id="cmpBCB0978762B0E40C4911C2175FD6858A" Guid="{D7EC1033-A14E-4F26-95DA-195F40FC568B}">
-      <File Id="fil2C387D9B5D49E4C276B520929E7E3BAC" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\GwApiNET.dll" />
+      <File Id="fil2C387D9B5D49E4C276B520929E7E3BAC" KeyPath="yes" Source="$(var.Deployment)\GwApiNET.dll" />
     </Component>
     <Component Id="cmpDEA5E93168687D8150FBF2B72E31BF9C" Guid="{74087F83-DCD4-45AB-9152-2B42FE6E00ED}">
-      <File Id="fil0060ACB134E68FBC7099095C495CA1A9" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\GwApiNET.XML" />
+      <File Id="fil0060ACB134E68FBC7099095C495CA1A9" KeyPath="yes" Source="$(var.Deployment)\GwApiNET.XML" />
     </Component>
     <Component Id="cmp1874AB219070404EED322213C6A1A49E" Guid="{6042BF41-7847-4576-99AC-D0580062327E}">
-      <File Id="fil05FF769999D602AD4FA6A489C44ED290" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\Newtonsoft.Json.dll" />
+      <File Id="fil05FF769999D602AD4FA6A489C44ED290" KeyPath="yes" Source="$(var.Deployment)\Newtonsoft.Json.dll" />
     </Component>
     <Component Id="cmp03F5503D497D187BDDF7D932D5BD55E9" Guid="{F2E245CD-DCC1-4CD0-A223-1691A5756E8A}">
-      <File Id="fil094941A1CF7BE1998B69C59AF0F5D834" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\Newtonsoft.Json.xml" />
+      <File Id="fil094941A1CF7BE1998B69C59AF0F5D834" KeyPath="yes" Source="$(var.Deployment)\Newtonsoft.Json.xml" />
     </Component>
     <Component Id="cmp2852C60350A5896EC5BE48CBA91E57B5" Guid="{B3DC3168-9C61-46DF-BA52-67A72A6BFE6C}">
-      <File Id="fil17BB0F59FF68026764FCEB657D038B4F" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\RestSharp.Build.dll" />
+      <File Id="fil17BB0F59FF68026764FCEB657D038B4F" KeyPath="yes" Source="$(var.Deployment)\RestSharp.Build.dll" />
     </Component>
     <Component Id="cmp5C9D3FEFF8E6518C98D597CE4D19B943" Guid="{E6BC4B99-72A0-49A8-A098-346095A63986}">
-      <File Id="filBB41261522032D4F801D4E43BD0216D3" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\RestSharp.dll" />
+      <File Id="filBB41261522032D4F801D4E43BD0216D3" KeyPath="yes" Source="$(var.Deployment)\RestSharp.dll" />
     </Component>
     <Component Id="cmp9A2D744DF2731E2E02F414988E3F8CCD" Guid="{7EE1E877-6DCB-440D-A746-6F2EF7EB6AC4}">
-      <File Id="filC73FA2C4962B6F84505836DD8126A4D5" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\RestSharp.xml" />
+      <File Id="filC73FA2C4962B6F84505836DD8126A4D5" KeyPath="yes" Source="$(var.Deployment)\RestSharp.xml" />
     </Component>
     <Component Id="cmp864F11EB86A3FBE6D380ADED179C7E14" Guid="{05AFF47D-5911-42E2-8228-13484B071E6B}">
-      <File Id="fil26D61836455CA3EFA66627B36C04ABC5" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\SLF.BitFactoryFacade.dll" />
+      <File Id="fil26D61836455CA3EFA66627B36C04ABC5" KeyPath="yes" Source="$(var.Deployment)\SLF.BitFactoryFacade.dll" />
     </Component>
     <Component Id="cmp845FC20456927CAAE275255600E369EC" Guid="{00545C6B-A1FA-491D-94FE-E3BCDD01470A}">
-      <File Id="filCC20F8EDA13A4DC1CCDBF52A399CC9BC" KeyPath="yes" Source="$(var.GW2EventMonitor.ProjectDir)\SLF.dll" />
+      <File Id="filCC20F8EDA13A4DC1CCDBF52A399CC9BC" KeyPath="yes" Source="$(var.Deployment)\SLF.dll" />
     </Component>
   </DirectoryRef>
   </Fragment>
