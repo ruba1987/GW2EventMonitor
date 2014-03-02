@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
   <PropertyGroup>
+    <WorkingFolder>$(MSBuildProjectDirectory)\..\</WorkingFolder>   
 	<ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
 	<BuildDir>$(WorkingFolder)\Builds</BuildDir>
 	<MSIDir>$(WorkingFolder)\GW2EventMonitorInstaller\bin\Release</MSIDir>
@@ -92,12 +93,17 @@
 		</PropertyGroup>
 		<ItemGroup>
 			<DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
+			<InstallerFiles Include="$(MSIDir)\*.*"/>
 		</ItemGroup>
 		<RemoveDir Directories="$(BuildDir)"/>
 		<MakeDir Directories="$(BuildDir)"/>
 		<Zip Files="@(DebugApplicationFiles)"
 		  WorkingDirectory="$(ReleaseDir)"
 		  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitor.zip"
+		  ZipLevel="9" />
+		<Zip Files="@(InstallerFiles)"
+		  WorkingDirectory="$(MSIDir)"
+		  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitorInstallerPackage.zip"
 		  ZipLevel="9" />
 	</Target>
   <!--
