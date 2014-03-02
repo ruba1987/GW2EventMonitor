@@ -7,7 +7,7 @@
 	<ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
 	<BuildDir>$(WorkingFolder)\Builds</BuildDir>
   </PropertyGroup>  
-   
+  
   <Target Name="Zip" DependsOnTargets="Compile" >  
 	<Message Text="=== Zipping $(Configuration) configuration ===" />
 	<PropertyGroup>
