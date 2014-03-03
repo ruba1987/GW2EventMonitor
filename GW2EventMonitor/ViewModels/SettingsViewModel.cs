@@ -87,13 +87,14 @@ namespace GW2EventMonitor.ViewModels
             InfoText = "Loading Data";
             _worldData = await _worldFetch.GetWorldNamesAsync();
             List<String> worlds = _worldData.Values.Select(x => x.Name).ToList<String>();
+            worlds.Sort();
             Worlds = worlds.ToArray<String>();
             InfoText = "Load Complete";
         }
 
         private void SaveExecute(Window w)
         {
-            _settings.RefreshData(_worldData.Values.Where(x => x.Name == CurrWorldName));
+            _settings.RefreshData(_worldData.Values.First(x => x.Name == CurrWorldName));
             _sm.Save(_settings);
             if (w != null)
                 w.Close();

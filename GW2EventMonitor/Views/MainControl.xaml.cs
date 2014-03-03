@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GW2EventMonitor.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace GW2EventMonitor
     /// </summary>
     public partial class MainControl : UserControl
     {
+        private MainViewModel _vm;
         public MainControl()
         {
             InitializeComponent();
+
+            _vm = grid.DataContext as MainViewModel;
+
             //Reset to correct for changes in XAML for testing
             arch.Size = new Size(100, 100);
             Close.Visibility = System.Windows.Visibility.Hidden;
@@ -60,6 +65,13 @@ namespace GW2EventMonitor
             Settings.Visibility = System.Windows.Visibility.Visible;
             Mute.Visibility = System.Windows.Visibility.Visible;
             ViewTimers.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void notifications_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            _vm.Notification = string.Empty;
+            _vm.FillColor = Colors.DarkBlue;
+            _vm.IsNotiVisible = false;
         }
 
 

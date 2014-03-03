@@ -109,7 +109,7 @@ namespace GW2EventMonitor.ViewModels
             AddCommand = new RelayCommand(AddExecute);
             WatchedEvents = new ObservableCollection<string>();
             if(_es.WatchedEvents != null)
-                _es.WatchedEvents.ForEach(x => WatchedEvents.Add(x.Value));
+                _es.WatchedEvents.Values.ToList().ForEach(x => WatchedEvents.Add(x));
             LoadAsync();
         }
 
@@ -119,6 +119,8 @@ namespace GW2EventMonitor.ViewModels
             _eventData = await _em.GetEventNamesAsync();
             Events = _eventData.Select(y => y.Value.Name).ToList<String>();
             Events.Sort();
+            //NOTE: build add just for testing
+            //Events.ForEach(c => WatchedEvents.Add(c));
             LoadingMsg = "Load Complete";
         }
 

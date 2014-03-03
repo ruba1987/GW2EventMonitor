@@ -17,7 +17,7 @@
         <local:BoolToVisibilityConverter x:Key="converter" />
         <vm:MainViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
-    <Grid DataContext="{StaticResource ViewModel}" RenderTransformOrigin="0.852,0.483" Margin="-23,-65,-252,-70">
+    <Grid x:Name="grid" DataContext="{StaticResource ViewModel}" RenderTransformOrigin="0.852,0.483" Margin="-23,-65,-252,-70">
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -88,6 +88,6 @@
                 </PathGeometry>
             </Path.Data>
         </Path>
-        <TextBlock x:Name="notifications" Text="{Binding Path=Notification}" Visibility="{Binding Path=IsNotiVisible, Converter={StaticResource converter}}" Margin="60,125,100,125"/>
+        <TextBlock x:Name="notifications" Background="LightCyan" Text="{Binding Path=Notification}" Visibility="{Binding Path=IsNotiVisible, Converter={StaticResource converter}}" Margin="78,125,-480,125" MouseLeftButtonUp="notifications_MouseLeftButtonUp"/>
     </Grid>
 </UserControl>
