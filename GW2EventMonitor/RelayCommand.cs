@@ -1,126 +1,149 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace GW2EventMonitor
 {
+    /// <summary>
+    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the CanExecute method is 'true'.
+    /// </summary>
     public class RelayCommand<T> : ICommand
     {
-        #region Fields
+        #region Declarations
 
-        readonly Action<T> _execute = null;
-        readonly Predicate<T> _canExecute = null;
+        readonly Predicate<T> _canExecute;
+        readonly Action<T> _execute;
 
-        #endregion // Fields
+        #endregion
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class and the command can always be executed.
+        /// </summary>
+        /// <param name="execute">The execution logic.</param>
         public RelayCommand(Action<T> execute)
             : this(execute, null)
         {
         }
 
         /// <summary>
-        /// Creates a new command.
+        /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class.
         /// </summary>
         /// <param name="execute">The execution logic.</param>
         /// <param name="canExecute">The execution status logic.</param>
         public RelayCommand(Action<T> execute, Predicate<T> canExecute)
         {
+
             if (execute == null)
                 throw new ArgumentNullException("execute");
-
             _execute = execute;
             _canExecute = canExecute;
         }
 
-        #endregion // Constructors
-
-        #region ICommand Members
-
-        [DebuggerStepThrough]
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null ? true : _canExecute((T)parameter);
-        }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute((T)parameter);
-        }
-
-        #endregion // ICommand Members
-    }
-
-    public class RelayCommand : ICommand
-    {
-
-        #region private fields
-
-        private readonly Action execute;
-
-        private readonly Func<bool> canExecute;
-        private ICommand MuteCommand;
-
         #endregion
 
-
+        #region ICommand Members
 
         public event EventHandler CanExecuteChanged
         {
             add
             {
-                if (this.canExecute != null)
+
+                if (_canExecute != null)
                     CommandManager.RequerySuggested += value;
             }
-
             remove
             {
-                if (this.canExecute != null)
+
+                if (_canExecute != null)
                     CommandManager.RequerySuggested -= value;
             }
         }
+
+        [DebuggerStepThrough]
+        public Boolean CanExecute(Object parameter)
+        {
+            return _canExecute == null ? true : _canExecute((T)parameter);
+        }
+
+        public void Execute(Object parameter)
+        {
+            _execute((T)parameter);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// A command whose sole purpose is to relay its functionality to other objects by invoking delegates. The default return value for the CanExecute method is 'true'.
+    /// </summary>
+    public class RelayCommand : ICommand
+    {
+
+        #region Declarations
+
+        readonly Func<Boolean> _canExecute;
+        readonly Action _execute;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class and the command can always be executed.
+        /// </summary>
+        /// <param name="execute">The execution logic.</param>
         public RelayCommand(Action execute)
             : this(execute, null)
         {
-
         }
 
-        public RelayCommand(Action execute, Func<bool> canExecute)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RelayCommand&lt;T&gt;"/> class.
+        /// </summary>
+        /// <param name="execute">The execution logic.</param>
+        /// <param name="canExecute">The execution status logic.</param>
+        public RelayCommand(Action execute, Func<Boolean> canExecute)
         {
+
             if (execute == null)
                 throw new ArgumentNullException("execute");
-            this.execute = execute;
-            this.canExecute = canExecute;
+            _execute = execute;
+            _canExecute = canExecute;
         }
 
-        public RelayCommand(ICommand MuteCommand)
+        #endregion
+
+        #region ICommand Members
+
+        public event EventHandler CanExecuteChanged
         {
-            // TODO: Complete member initialization
-            this.MuteCommand = MuteCommand;
+            add
+            {
+
+                if (_canExecute != null)
+                    CommandManager.RequerySuggested += value;
+            }
+            remove
+            {
+
+                if (_canExecute != null)
+                    CommandManager.RequerySuggested -= value;
+            }
         }
 
-
-
-        public void Execute(object parameter)
+        [DebuggerStepThrough]
+        public Boolean CanExecute(Object parameter)
         {
-            this.execute();
+            return _canExecute == null ? true : _canExecute();
         }
 
-        public bool CanExecute(object parameter)
+        public void Execute(Object parameter)
         {
-            return this.canExecute == null ? true : this.canExecute();
+            _execute();
         }
 
+        #endregion
     }
 }

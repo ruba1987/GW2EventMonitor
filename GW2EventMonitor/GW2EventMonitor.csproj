@@ -117,6 +117,8 @@
     </ApplicationDefinition>
     <Compile Include="BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
+    <Compile Include="ViewModels\PropertySupport.cs" />
+    <Compile Include="ViewModels\NotificationObject.cs" />
     <Compile Include="Views\EventsView.xaml.cs">
       <DependentUpon>EventsView.xaml</DependentUpon>
     </Compile>

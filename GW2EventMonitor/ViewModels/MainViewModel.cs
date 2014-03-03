@@ -13,7 +13,7 @@ using System.Windows.Media;
 
 namespace GW2EventMonitor.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : NotificationObject
     {
         #region fields
         private readonly Color _mutedColor = Colors.Black;
@@ -43,7 +43,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _isNotiVisible = value;
-                OnPropertyChanged("IsNotiVisible");
+                RaisePropertyChanged("IsNotiVisible");
             }
         }
 
@@ -55,7 +55,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _notification = value;
-                OnPropertyChanged("Notification");
+                RaisePropertyChanged("Notification");
             }
         }
 
@@ -68,59 +68,36 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _fillColor = value;
-                OnPropertyChanged("FillColor");
+                RaisePropertyChanged("FillColor");
             }
         }
 
         #endregion
 
         #region Commands
-        private ICommand _settingsCommand;
-
+        private RelayCommand _settingsCommand;
         public ICommand SettingsCommand
         {
-            get { return _settingsCommand; }
-            set
-            {
-                _settingsCommand = value;
-                OnPropertyChanged("SettingsCommand");
-            }
+            get { return _settingsCommand ?? (_settingsCommand = new RelayCommand(SettingsExecute)); }
         }
 
-        private ICommand _viewTimersCommand;
-
+        private RelayCommand _viewTimersCommand;
         public ICommand ViewTimersCommand
         {
-            get { return _viewTimersCommand; }
-            set
-            {
-                _viewTimersCommand = value;
-                OnPropertyChanged("ViewTimersCommand");
-            }
+            get { return _viewTimersCommand ?? (_viewTimersCommand = new RelayCommand(ViewTimersExecute)); }
         }
 
-        private ICommand _muteCommand;
-
+        private RelayCommand _muteCommand;
         public ICommand MuteCommand
         {
-            get { return _muteCommand; }
-            set
-            {
-                _muteCommand = value;
-                OnPropertyChanged("MuteCommand");
-            }
+            get { return _muteCommand ?? (_muteCommand = new RelayCommand(MuteExecute)); }
         }
 
-        private ICommand _closeCommand;
+        private RelayCommand _closeCommand;
 
         public ICommand CloseCommand
         {
-            get { return _closeCommand; }
-            set
-            {
-                _closeCommand = value;
-                OnPropertyChanged("CloseCommand");
-            }
+            get { return _closeCommand ?? (_closeCommand = new RelayCommand(CloseExecute)); }
         }
         #endregion
 
@@ -132,13 +109,9 @@ namespace GW2EventMonitor.ViewModels
             IsNotiVisible = false;
             FillColor = _normalColor;
             Notification = String.Empty;
-            SettingsCommand = new RelayCommand(SettingsExecute);
-            ViewTimersCommand = new RelayCommand(ViewTimersExecute);
-            MuteCommand = new RelayCommand(MuteExecute);
-            CloseCommand = new RelayCommand(CloseExecute);
 
             //TODO this is garbage. It's a hack to get things working for now. This needs to be protected
-            if (_bs.WorldID > 0)
+            if (_bs != null && _bs.WorldID > 0)
                 Task.Factory.StartNew(() => 
                     {
                         InitEvents();
@@ -201,17 +174,5 @@ namespace GW2EventMonitor.ViewModels
             Settings s = new Settings();
             s.Show();
         }
-
-        #region Property Changed
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-        #endregion
     }
 }

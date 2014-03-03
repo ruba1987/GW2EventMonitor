@@ -13,7 +13,7 @@ using GwApiNET.ResponseObjects;
 
 namespace GW2EventMonitor.ViewModels
 {
-    public class EventsViewModel : INotifyPropertyChanged
+    public class EventsViewModel : NotificationObject
     {
         #region Fields
         private SettingsManager _sm = new SettingsManager();
@@ -32,7 +32,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _events = value;
-                OnPropertyChanged("Events");
+                RaisePropertyChanged("Events");
             }
         }
 
@@ -45,7 +45,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _watchedEvents = value;
-                OnPropertyChanged("WatchedEvents");
+                RaisePropertyChanged("WatchedEvents");
             }
         }
 
@@ -57,7 +57,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _selectedEventName = value;
-                OnPropertyChanged("SelectedEventName");
+                RaisePropertyChanged("SelectedEventName");
             }
         }
 
@@ -68,7 +68,7 @@ namespace GW2EventMonitor.ViewModels
             get { return _loadingMsg; }
             set { 
                 _loadingMsg = value;
-                OnPropertyChanged("LoadingMsg");
+                RaisePropertyChanged("LoadingMsg");
             }
         }
 
@@ -76,28 +76,17 @@ namespace GW2EventMonitor.ViewModels
         #endregion
 
         #region Commands
-        private ICommand _saveCommand;
 
+        private RelayCommand<Window> _saveCommand;
         public ICommand SaveCommand
         {
-            get { return _saveCommand; }
-            set
-            {
-                _saveCommand = value;
-                OnPropertyChanged("SaveCommand");
-            }
+            get { return _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveExecute)); }
         }
 
-        private ICommand _addCommand;
-
+        private RelayCommand _addCommand;
         public ICommand AddCommand
         {
-            get { return _addCommand; }
-            set
-            {
-                _addCommand = value;
-                OnPropertyChanged("AddCommand");
-            }
+            get { return _addCommand ?? (_addCommand = new RelayCommand(AddExecute)); }
         }
         #endregion
 
@@ -105,10 +94,8 @@ namespace GW2EventMonitor.ViewModels
         {
             _es = _sm.GetSettings(SettingType.Event) as EventSettings;
             _bs = _sm.GetSettings(SettingType.Baisc) as BasicSettings;
-            SaveCommand = new RelayCommand<Window>(SaveExecute);
-            AddCommand = new RelayCommand(AddExecute);
             WatchedEvents = new ObservableCollection<string>();
-            if(_es.WatchedEvents != null)
+            if(_es != null && _es.WatchedEvents != null)
                 _es.WatchedEvents.Values.ToList().ForEach(x => WatchedEvents.Add(x));
             LoadAsync();
         }
@@ -137,17 +124,5 @@ namespace GW2EventMonitor.ViewModels
             if (w != null)
                 w.Close();
         }
-
-        #region Property Changed
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-        #endregion
     }
 }

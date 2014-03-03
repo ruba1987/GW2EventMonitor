@@ -12,7 +12,7 @@ using GwApiNET.ResponseObjects;
 
 namespace GW2EventMonitor.ViewModels
 {
-    public class SettingsViewModel : INotifyPropertyChanged
+    public class SettingsViewModel : NotificationObject
     {
         #region Fields
         private WorldManager _worldFetch = new WorldManager();
@@ -30,7 +30,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _infoText = value;
-                OnPropertyChanged("InfoText");
+                RaisePropertyChanged("InfoText");
             }
         }
 
@@ -43,7 +43,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _worlds = value;
-                OnPropertyChanged("Worlds");
+                RaisePropertyChanged("Worlds");
             }
         }
 
@@ -53,23 +53,17 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _settings.CurrentWorld = value;
-                OnPropertyChanged("CurrWorldName");
+                RaisePropertyChanged("CurrWorldName");
             }
         }
 
         #endregion
 
         #region Commands
-        private ICommand _saveCommand;
-
+        private RelayCommand<Window> _saveCommand;
         public ICommand SaveCommand
         {
-            get { return _saveCommand; }
-            set
-            {
-                _saveCommand = value;
-                OnPropertyChanged("SaveCommand");
-            }
+            get { return _saveCommand ?? (_saveCommand = new RelayCommand<Window>(SaveExecute)); }
         }
 
         #endregion
@@ -78,7 +72,6 @@ namespace GW2EventMonitor.ViewModels
         {
             Worlds = new String[1] {"Loading Data"};
             LoadAsyncData();
-            SaveCommand = new RelayCommand<Window>(SaveExecute);
             _settings = _sm.GetSettings(SettingType.Baisc) as BasicSettings;
         }
 
@@ -99,17 +92,5 @@ namespace GW2EventMonitor.ViewModels
             if (w != null)
                 w.Close();
         }
-
-        #region Property Changed
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
-        #endregion
     }
 }
