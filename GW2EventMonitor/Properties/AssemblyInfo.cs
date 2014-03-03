@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Reflection.AssemblyVersion("0.1")]
-[assembly: System.Reflection.AssemblyFileVersion("0.1.1.69")]
+[assembly: System.Reflection.AssemblyFileVersion("0.1.1.3")]
 [assembly: System.Reflection.AssemblyTitle("GW2EventMonitor")]
 [assembly: System.Reflection.AssemblyProduct("GW2EventMonitor")]
 [assembly: System.Reflection.AssemblyCopyright("Copyright ©  2014")]

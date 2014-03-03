@@ -56,8 +56,6 @@
       </Component>
       
       <ComponentRef Id="cmpD883E62B415FDEF049AE793D6833F540" />
-      <ComponentRef Id="cmpBCB0978762B0E40C4911C2175FD6858A" />
-      <ComponentRef Id="cmpDEA5E93168687D8150FBF2B72E31BF9C" />
       <ComponentRef Id="cmp1874AB219070404EED322213C6A1A49E" />
       <ComponentRef Id="cmp03F5503D497D187BDDF7D932D5BD55E9" />
       <ComponentRef Id="cmp2852C60350A5896EC5BE48CBA91E57B5" />
