@@ -23,54 +23,10 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Close" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="15,80,265,200" Command="{Binding Path=CloseCommand}">
-        <Button.Template>
-            <ControlTemplate TargetType="Button">
-                <Grid>
-                    <Ellipse Stroke="Black" StrokeThickness="2" Fill="Red">
-                    </Ellipse>
-                    <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                </Grid>
-            </ControlTemplate>
-        </Button.Template>
-    </Button>
-        <Button x:Name="Mute" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="40,100,240,180" Command="{Binding Path=MuteCommand}">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Yellow">
-                        </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="ViewTimers" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="40,180,240,100" Command="{Binding Path=ViewTimersCommand}">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Green">
-                        </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="Settings" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="15,200,265,80" Command="{Binding Path=SettingsCommand}">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid Margin="0,1,0,-1">
-                        <Ellipse Stroke="Black" StrokeThickness="2" Fill="Purple">
-                        </Ellipse>
-                        <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        <Button x:Name="Close" Style="{StaticResource Gw2CircleButton}" Background="Red" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="15,80,265,200" Command="{Binding Path=CloseCommand}"/>
+        <Button x:Name="Mute" Style="{StaticResource Gw2CircleButton}" Background="Yellow" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="40,100,240,180" Command="{Binding Path=MuteCommand}"/>
+        <Button x:Name="ViewTimers" Style="{StaticResource Gw2CircleButton}" Background="Green" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="40,180,240,100" Command="{Binding Path=ViewTimersCommand}"/>
+        <Button x:Name="Settings" Style="{StaticResource Gw2CircleButton}" Background="Purple" BorderBrush="Black" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="20" Height="20" Visibility="Visible" Margin="15,200,265,80" Command="{Binding Path=SettingsCommand}"/>
         <Path Stroke="Black" StrokeThickness="1"  Height="100" Width="50" Margin="0,100,250,100" >
             <Path.Fill>
                 <SolidColorBrush Color="{Binding Path=FillColor}"/>
