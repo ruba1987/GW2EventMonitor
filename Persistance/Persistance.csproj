@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GwApiNET">
-      <HintPath>..\dependencies\GwApiNET.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dependencies\Newtonsoft.Json.dll</HintPath>
@@ -52,6 +49,12 @@
     <Compile Include="SettingsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SettingType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
+      <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
+      <Name>GwApiNET</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

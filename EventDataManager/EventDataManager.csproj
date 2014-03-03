@@ -33,9 +33,6 @@
     <Reference Include="BitFactory">
       <HintPath>..\dependencies\BitFactory.dll</HintPath>
     </Reference>
-    <Reference Include="GwApiNET">
-      <HintPath>..\dependencies\GwApiNET.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\dependencies\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -61,9 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventDataFetcher.cs" />
+    <Compile Include="EventMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
+      <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
+      <Name>GwApiNET</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Persistance\Persistance.csproj">
       <Project>{b84b0776-1f84-4590-afcf-4d89df888ebf}</Project>
       <Name>Persistance</Name>

@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F9349A9-6FBD-4344-B535-82D60D576FCA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GwApiNET</RootNamespace>
+    <AssemblyName>GwApiNET</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\GwApiNET.XML</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\GwApiNET.XML</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\x64\Release\GwApiNET.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\x86\Debug\GwApiNET.XML</DocumentationFile>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\x86\Release\GwApiNET.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependencies\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependencies\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SLF">
+      <HintPath>..\dependencies\SLF.dll</HintPath>
+    </Reference>
+    <Reference Include="SLF.BitFactoryFacade">
+      <HintPath>..\dependencies\SLF.BitFactoryFacade.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiRequest.cs" />
+    <Compile Include="ApiRequestHandler.cs" />
+    <Compile Include="AssymblyInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AssymblyInfo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="CacheStrategy\AgeCacheStrategy.cs" />
+    <Compile Include="CacheStrategy\BuildVersionCacheStrategy.cs" />
+    <Compile Include="CacheStrategy\CollectionCacheStrategy.cs" />
+    <Compile Include="CacheStrategy\DayOfWeekStrategy.cs" />
+    <Compile Include="CacheStrategy\DictionaryCacheStrategy.cs" />
+    <Compile Include="CacheStrategy\ICacheStrategy.cs" />
+    <Compile Include="CacheStrategy\NullCacheStrategy.cs" />
+    <Compile Include="Gw2PositionReader\Player.cs" />
+    <Compile Include="GwApiException.cs" />
+    <Compile Include="IResponseCache.cs" />
+    <Compile Include="Logging\GwLogManager.cs" />
+    <Compile Include="ResponseObjects\Parsers\ApiParserBase.cs" />
+    <Compile Include="StructExtensions.cs" />
+    <Compile Include="Gw2PositionReader\Gw2PositionReaderApi.cs" />
+    <Compile Include="Gw2PositionReader\Vector3.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="Gw2Stats\Extensions.cs" />
+    <Compile Include="Gw2Stats\Gw2StatsApi.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Gw2StatsMatchEntry.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Gw2StatsObjectives.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Gw2StatsRatingsObject.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Parsers\Gw2StatsMatchEntryParser.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Parsers\Gw2StatsObjectivesParser.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Parsers\Gw2StatsRatingsObjectParser.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Parsers\Gw2StatsStatusCodeParser.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Parsers\Ge2StatsStatusEntryParser.cs" />
+    <Compile Include="Gw2Stats\ResponseObjects\Gw2StatsStatusEntry.cs" />
+    <Compile Include="Gw2Stats\StatusCodeDescriptions.cs" />
+    <Compile Include="GwApi.cs" />
+    <Compile Include="GwMapsHelper.cs" />
+    <Compile Include="IApiRequest.cs" />
+    <Compile Include="IApiRequestHandler.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="INetworkHandler.cs" />
+    <Compile Include="Internal\TestedAttribute.cs" />
+    <Compile Include="MathHelpers.cs" />
+    <Compile Include="NetworkHandler.cs" />
+    <Compile Include="ResponseCache.cs" />
+    <Compile Include="ResponseException.cs" />
+    <Compile Include="ResponseObjects\Parsers\FileEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\NullParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\RenderServiceAssetParser.cs" />
+    <Compile Include="ResponseObjects\RenderServiceAssetEntry.cs" />
+    <Compile Include="ResponseObjects\ColorEntry.cs" />
+    <Compile Include="ResponseObjects\ContinentEntry.cs" />
+    <Compile Include="ResponseObjects\EntryCollection.cs" />
+    <Compile Include="ResponseObjects\EntryDictionary.cs" />
+    <Compile Include="ResponseObjects\EventDetailsEntry.cs" />
+    <Compile Include="ResponseObjects\EventEntry.cs" />
+    <Compile Include="ResponseObjects\EventNameEntry.cs" />
+    <Compile Include="ResponseObjects\FileEntry.cs" />
+    <Compile Include="ResponseObjects\GuildDetailsEntry.cs" />
+    <Compile Include="ResponseObjects\IdList.cs" />
+    <Compile Include="ResponseObjects\ItemDetailsEntry.cs" />
+    <Compile Include="ResponseObjects\MapEntry.cs" />
+    <Compile Include="ResponseObjects\MapEntryBase.cs" />
+    <Compile Include="ResponseObjects\MapFloorEntry.cs" />
+    <Compile Include="ResponseObjects\MapNameEntry.cs" />
+    <Compile Include="ResponseObjects\MatchDetailsEntry.cs" />
+    <Compile Include="ResponseObjects\MatchEntry.cs" />
+    <Compile Include="ResponseObjects\ObjectiveNameEntry.cs" />
+    <Compile Include="ResponseObjects\Parsers\ColorEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\ContinentEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\EventDetailsEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\EventEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\EventNameEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\GuildDetailsEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\ItemDetailsEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\ItemIdListParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\MapEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\MapFloorEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\MapNameEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\MatchDetailsEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\MatchEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\ObjectiveNameEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\ParserHelper.cs" />
+    <Compile Include="ResponseObjects\Parsers\RecipeDetailsEntryParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\RecipeIdListParser.cs" />
+    <Compile Include="ResponseObjects\Parsers\WorldNameEntryParser.cs" />
+    <Compile Include="ResponseObjects\RecipeDetailsEntry.cs" />
+    <Compile Include="ResponseObjects\RecipeIngredient.cs" />
+    <Compile Include="ResponseObjects\ResponseObject.cs" />
+    <Compile Include="ResponseObjects\WorldNameEntry.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="XmlUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AssymblyInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AssymblyInfo.cs</LastGenOutput>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

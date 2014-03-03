@@ -81,11 +81,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dependencies\BitFactory.dll</HintPath>
     </Reference>
-    <Reference Include="GwApiNET, Version=2.4.29.277, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\dependencies\GwApiNET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\dependencies\Newtonsoft.Json.dll</HintPath>
@@ -193,6 +188,10 @@
     <ProjectReference Include="..\EventDataManager\EventDataManager.csproj">
       <Project>{d8ce6156-e40a-44c2-9007-01125f990ef0}</Project>
       <Name>EventDataManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
+      <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
+      <Name>GwApiNET</Name>
     </ProjectReference>
     <ProjectReference Include="..\Persistance\Persistance.csproj">
       <Project>{b84b0776-1f84-4590-afcf-4d89df888ebf}</Project>
