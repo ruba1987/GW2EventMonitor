@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
   <PropertyGroup>
-    <WorkingFolder>$(MSBuildProjectDirectory)\..\</WorkingFolder>   
-	<ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
-	<BuildDir>$(WorkingFolder)\Builds</BuildDir>
-	<MSIDir>$(WorkingFolder)\GW2EventMonitorInstaller\bin\Release</MSIDir>
+    <WorkingFolder>$(MSBuildProjectDirectory)\..\</WorkingFolder>
+    <ReleaseDir>$(WorkingFolder)\GW2EventMonitor\bin\Release</ReleaseDir>
+    <BuildDir>$(WorkingFolder)\Builds</BuildDir>
+    <MSIDir>$(WorkingFolder)\GW2EventMonitorInstaller\bin\Release</MSIDir>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.8</ProductVersion>
@@ -23,7 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath> 
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Product.wxs" />
@@ -40,6 +40,14 @@
     <ProjectReference Include="..\GW2EventMonitor\GW2EventMonitor.csproj">
       <Name>GW2EventMonitor</Name>
       <Project>{4d858b5f-c041-4a2e-b030-e7fcd7691223}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
+      <Name>GwApiNET</Name>
+      <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
@@ -64,48 +72,29 @@
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!-- NOTE: for each new major/minor upgrade reset the start date to DateTime.Now-->
-	<Target Name="BeforeBuild">
-		<Version VersionFile="..\GW2EventMonitor\Properties\VersionInfo.txt" Major="0" Minor="1" BuildType="Automatic" StartDate="03/01/2014" RevisionType="BuildIncrement">
-			<Output TaskParameter="Major" PropertyName="Major" />
-			<Output TaskParameter="Minor" PropertyName="Minor" />
-			<Output TaskParameter="Build" PropertyName="Build" />
-			<Output TaskParameter="Revision" PropertyName="Revision" />
-		</Version>
-		<AssemblyInfo CodeLanguage="CS"
-			OutputFile="..\GW2EventMonitor\Properties\AssemblyInfo.cs"
-			AssemblyVersion="0.1"
-			AssemblyFileVersion="0.1.$(Build).$(Revision)"
-			AssemblyTitle="GW2EventMonitor"
-			AssemblyDescription=""
-			AssemblyConfiguration=""
-			AssemblyCompany=""
-			AssemblyProduct="GW2EventMonitor"
-			AssemblyCopyright="Copyright ©  2014"
-			AssemblyTrademark=""
-			AssemblyCulture=""
-			ComVisible="false"
-			/>
-	</Target>
-	<Target Name="AfterBuild">
-		<Message Text="=== Zipping $(Configuration) configuration ===" />
-		<PropertyGroup>
-		  <StringDate>$([System.DateTime]::Now.ToString('yyyyMMddhhmmss'))</StringDate>
-		</PropertyGroup>
-		<ItemGroup>
-			<DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
-			<InstallerFiles Include="$(MSIDir)\*.*"/>
-		</ItemGroup>
-		<RemoveDir Directories="$(BuildDir)"/>
-		<MakeDir Directories="$(BuildDir)"/>
-		<Zip Files="@(DebugApplicationFiles)"
-		  WorkingDirectory="$(ReleaseDir)"
-		  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitor.zip"
-		  ZipLevel="9" />
-		<Zip Files="@(InstallerFiles)"
-		  WorkingDirectory="$(MSIDir)"
-		  ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitorInstallerPackage.zip"
-		  ZipLevel="9" />
-	</Target>
+  <Target Name="BeforeBuild">
+    <Version VersionFile="..\GW2EventMonitor\Properties\VersionInfo.txt" Major="0" Minor="1" BuildType="Automatic" StartDate="03/01/2014" RevisionType="BuildIncrement">
+      <Output TaskParameter="Major" PropertyName="Major" />
+      <Output TaskParameter="Minor" PropertyName="Minor" />
+      <Output TaskParameter="Build" PropertyName="Build" />
+      <Output TaskParameter="Revision" PropertyName="Revision" />
+    </Version>
+    <AssemblyInfo CodeLanguage="CS" OutputFile="..\GW2EventMonitor\Properties\AssemblyInfo.cs" AssemblyVersion="0.1" AssemblyFileVersion="0.1.$(Build).$(Revision)" AssemblyTitle="GW2EventMonitor" AssemblyDescription="" AssemblyConfiguration="" AssemblyCompany="" AssemblyProduct="GW2EventMonitor" AssemblyCopyright="Copyright ©  2014" AssemblyTrademark="" AssemblyCulture="" ComVisible="false" />
+  </Target>
+  <Target Name="AfterBuild">
+    <Message Text="=== Zipping $(Configuration) configuration ===" />
+    <PropertyGroup>
+      <StringDate>$([System.DateTime]::Now.ToString('yyyyMMddhhmmss'))</StringDate>
+    </PropertyGroup>
+    <ItemGroup>
+      <DebugApplicationFiles Include="$(ReleaseDir)\**\*.*" Exclude="$(WorkingFolder)\*vshost.exe*" />
+      <InstallerFiles Include="$(MSIDir)\*.*" />
+    </ItemGroup>
+    <RemoveDir Directories="$(BuildDir)" />
+    <MakeDir Directories="$(BuildDir)" />
+    <Zip Files="@(DebugApplicationFiles)" WorkingDirectory="$(ReleaseDir)" ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitor.zip" ZipLevel="9" />
+    <Zip Files="@(InstallerFiles)" WorkingDirectory="$(MSIDir)" ZipFileName="$(BuildDir)\$(StringDate)_GW2EventMonitorInstallerPackage.zip" ZipLevel="9" />
+  </Target>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.
