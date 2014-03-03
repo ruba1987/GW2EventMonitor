@@ -3,9 +3,6 @@ using GwApiNET;
 using Persistance;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -43,7 +40,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _isNotiVisible = value;
-                RaisePropertyChanged("IsNotiVisible");
+                RaisePropertyChanged(() => IsNotiVisible);
             }
         }
 
@@ -55,7 +52,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _notification = value;
-                RaisePropertyChanged("Notification");
+                RaisePropertyChanged(() => Notification);
             }
         }
 
@@ -68,7 +65,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _fillColor = value;
-                RaisePropertyChanged("FillColor");
+                RaisePropertyChanged(() => FillColor);
             }
         }
 

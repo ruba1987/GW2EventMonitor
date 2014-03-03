@@ -117,12 +117,11 @@
     </ApplicationDefinition>
     <Compile Include="BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
-    <Compile Include="ViewModels\PropertySupport.cs" />
-    <Compile Include="ViewModels\NotificationObject.cs" />
+    <Compile Include="PropertySupport.cs" />
+    <Compile Include="NotificationObject.cs" />
     <Compile Include="Views\EventsView.xaml.cs">
       <DependentUpon>EventsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PropChange.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\Settings.xaml.cs">

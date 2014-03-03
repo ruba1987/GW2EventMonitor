@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
-namespace GW2EventMonitor.ViewModels
+namespace GW2EventMonitor
 {    
     [Serializable]
     public abstract class NotificationObject : INotifyPropertyChanged

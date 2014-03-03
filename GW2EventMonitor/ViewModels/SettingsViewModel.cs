@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WorldDataManager;
 using Persistance;
@@ -15,9 +11,9 @@ namespace GW2EventMonitor.ViewModels
     public class SettingsViewModel : NotificationObject
     {
         #region Fields
-        private WorldManager _worldFetch = new WorldManager();
-        private SettingsManager _sm = new SettingsManager();
-        private Persistance.BasicSettings _settings;
+        private readonly WorldManager _worldFetch = new WorldManager();
+        private readonly SettingsManager _sm = new SettingsManager();
+        private readonly BasicSettings _settings;
         private EntryDictionary<int, WorldNameEntry> _worldData;
         #endregion
 
@@ -30,7 +26,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _infoText = value;
-                RaisePropertyChanged("InfoText");
+                RaisePropertyChanged(() => InfoText);
             }
         }
 
@@ -43,7 +39,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _worlds = value;
-                RaisePropertyChanged("Worlds");
+                RaisePropertyChanged(() => Worlds);
             }
         }
 
@@ -53,7 +49,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _settings.CurrentWorld = value;
-                RaisePropertyChanged("CurrWorldName");
+                RaisePropertyChanged(() => CurrWorldName);
             }
         }
 
@@ -70,7 +66,7 @@ namespace GW2EventMonitor.ViewModels
 
         public SettingsViewModel()
         {
-            Worlds = new String[1] {"Loading Data"};
+            Worlds = new[] {"Loading Data"};
             LoadAsyncData();
             _settings = _sm.GetSettings(SettingType.Baisc) as BasicSettings;
         }
@@ -79,7 +75,7 @@ namespace GW2EventMonitor.ViewModels
         {
             InfoText = "Loading Data";
             _worldData = await _worldFetch.GetWorldNamesAsync();
-            List<String> worlds = _worldData.Values.Select(x => x.Name).ToList<String>();
+            var worlds = _worldData.Values.Select(x => x.Name).ToList();
             worlds.Sort();
             Worlds = worlds.ToArray<String>();
             InfoText = "Load Complete";

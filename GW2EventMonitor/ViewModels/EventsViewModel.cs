@@ -3,10 +3,7 @@ using Persistance;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GwApiNET.ResponseObjects;
@@ -16,10 +13,10 @@ namespace GW2EventMonitor.ViewModels
     public class EventsViewModel : NotificationObject
     {
         #region Fields
-        private SettingsManager _sm = new SettingsManager();
-        private EventSettings _es;
-        private BasicSettings _bs;
-        private EventDataFetcher _em = new EventDataFetcher();
+        private readonly SettingsManager _sm = new SettingsManager();
+        private readonly EventSettings _es;
+        private readonly BasicSettings _bs;
+        private readonly EventDataFetcher _em = new EventDataFetcher();
         private EntryDictionary<Guid, EventNameEntry> _eventData;
         #endregion
 
@@ -32,7 +29,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _events = value;
-                RaisePropertyChanged("Events");
+                RaisePropertyChanged(() => Events);
             }
         }
 
@@ -45,7 +42,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _watchedEvents = value;
-                RaisePropertyChanged("WatchedEvents");
+                RaisePropertyChanged(() => WatchedEvents);
             }
         }
 
@@ -57,7 +54,7 @@ namespace GW2EventMonitor.ViewModels
             set
             {
                 _selectedEventName = value;
-                RaisePropertyChanged("SelectedEventName");
+                RaisePropertyChanged(() => SelectedEventName);
             }
         }
 
@@ -104,7 +101,7 @@ namespace GW2EventMonitor.ViewModels
         {
             LoadingMsg = "Loading Data";
             _eventData = await _em.GetEventNamesAsync();
-            Events = _eventData.Select(y => y.Value.Name).ToList<String>();
+            Events = _eventData.Select(y => y.Value.Name).ToList();
             Events.Sort();
             //NOTE: build add just for testing
             //Events.ForEach(c => WatchedEvents.Add(c));

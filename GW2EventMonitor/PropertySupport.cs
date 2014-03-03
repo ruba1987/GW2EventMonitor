@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace GW2EventMonitor.ViewModels
+namespace GW2EventMonitor
 {
     public static class PropertySupport
     {
