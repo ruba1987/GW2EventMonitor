@@ -2,7 +2,6 @@
         x:Name="Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:GW2EventMonitor"
         xmlns:vm="clr-namespace:GW2EventMonitor.ViewModels"
         Title="EventsView" Height="300" Width="300">
     <Window.Resources>

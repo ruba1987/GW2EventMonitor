@@ -1,7 +1,6 @@
 ﻿<Window x:Class="GW2EventMonitor.Settings"
         x:Name="Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:local="clr-namespace:GW2EventMonitor"
         xmlns:vm="clr-namespace:GW2EventMonitor.ViewModels"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Settings" Height="300" Width="300"

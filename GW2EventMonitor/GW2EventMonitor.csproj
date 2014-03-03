@@ -115,7 +115,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\EventsViewModel.cs" />
     <Compile Include="PropertySupport.cs" />
     <Compile Include="NotificationObject.cs" />
