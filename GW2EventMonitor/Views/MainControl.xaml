@@ -12,11 +12,13 @@
              IsEnabled="True"
              Visibility="Visible" MouseLeave="UserControl_MouseLeave_1"
              >
+    <UserControl.DataContext>
+        <vm:MainViewModel/>
+    </UserControl.DataContext>
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="converter" />
-        <vm:MainViewModel x:Key="ViewModel"/>
     </UserControl.Resources>
-    <Grid x:Name="grid" DataContext="{StaticResource ViewModel}" RenderTransformOrigin="0.852,0.483" Margin="-23,-65,-252,-70">
+    <Grid x:Name="grid" RenderTransformOrigin="0.852,0.483" Margin="-23,-65,-252,-70">
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>

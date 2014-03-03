@@ -4,10 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:GW2EventMonitor.ViewModels"
         Title="EventsView" Height="300" Width="300">
-    <Window.Resources>
-        <vm:EventsViewModel x:Key="ViewModel"/>
-    </Window.Resources>
-    <Grid DataContext="{StaticResource ViewModel}">
+    <Window.DataContext>
+        <vm:EventsViewModel/>
+    </Window.DataContext>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -25,8 +25,8 @@
             <ComboBox  ItemsSource="{Binding Path=Events}" SelectedItem="{Binding Path=SelectedEventName, Mode=TwoWay}" Width="120" Height="25" Margin="5"/>
             <Button Content="Add" Command="{Binding AddCommand}" Margin="5" Width="50" Height="25"/>
         </StackPanel>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="2" ItemsSource="{Binding Path=WatchedEvents}"/>
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" ItemsSource="{Binding Path=WatchedEvents}"/>
         <Button Grid.Row="3" Grid.Column="3" Content="Save" Command="{Binding SaveCommand}" CommandParameter="{Binding ElementName=Window}" Margin="5" Height="25"/>
-        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Content="{Binding Path=LoadingMsg}" VerticalAlignment="Center" Margin="5"/>
+        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Content="{Binding Path=LoadingMsg}" VerticalAlignment="Center" Margin="5"/>
     </Grid>
 </Window>
