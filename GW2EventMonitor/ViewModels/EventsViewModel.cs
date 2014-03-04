@@ -7,6 +7,8 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using GwApiNET.ResponseObjects;
+using System.Windows.Data;
+using MapDataManager;
 
 namespace GW2EventMonitor.ViewModels
 {
@@ -17,10 +19,26 @@ namespace GW2EventMonitor.ViewModels
         private readonly EventSettings _es;
         private readonly BasicSettings _bs;
         private readonly EventDataFetcher _em = new EventDataFetcher();
-        private EntryDictionary<Guid, EventNameEntry> _eventData;
+        private readonly MapDataFetcher _mf = new MapDataFetcher();
+        private EntryDictionary<Guid, EventNameEntry> _eventNames;
+        private EntryCollection<EventEntry> _eventDetails;
+        private EntryDictionary<int, MapNameEntry> _mapNames;
         #endregion
 
         #region Props
+        private List<KeyValuePair<MapNameEntry, EventNameEntry>> _eventsWithNames;
+
+        public List<KeyValuePair<MapNameEntry, EventNameEntry>> EventsWithMapNames
+        {
+            get { return _eventsWithNames; }
+            set
+            {
+                _eventsWithNames = value;
+                RaisePropertyChanged(() => EventsWithMapNames);
+            }
+        }
+
+
         private List<String> _events;
 
         public List<String> Events
@@ -63,7 +81,8 @@ namespace GW2EventMonitor.ViewModels
         public String LoadingMsg
         {
             get { return _loadingMsg; }
-            set { 
+            set
+            {
                 _loadingMsg = value;
                 RaisePropertyChanged("LoadingMsg");
             }
@@ -92,7 +111,7 @@ namespace GW2EventMonitor.ViewModels
             _es = _sm.GetSettings(SettingType.Event) as EventSettings;
             _bs = _sm.GetSettings(SettingType.Baisc) as BasicSettings;
             WatchedEvents = new ObservableCollection<string>();
-            if(_es != null && _es.WatchedEvents != null)
+            if (_es != null && _es.WatchedEvents != null)
                 _es.WatchedEvents.Values.ToList().ForEach(x => WatchedEvents.Add(x));
             LoadAsync();
         }
@@ -100,9 +119,13 @@ namespace GW2EventMonitor.ViewModels
         private async void LoadAsync()
         {
             LoadingMsg = "Loading Data";
-            _eventData = await _em.GetEventNamesAsync();
-            Events = _eventData.Select(y => y.Value.Name).ToList();
+            _eventNames = await _em.GetEventNamesAsync();
+            _eventDetails = await _em.GetEventDetailsAsync();
+            _mapNames = await _mf.GetMapNamesAsync();
+            Events = _eventNames.Select(x => x.Value.Name).ToList();
             Events.Sort();
+            _eventsWithNames = _eventDetails.Select(x => new KeyValuePair<MapNameEntry, EventNameEntry>(_mapNames[x.MapId], _eventNames[x.EventId])).ToList();
+            _eventsWithNames.OrderBy(x => x.Key.Name).ThenBy(y => y.Value.Name);
             //NOTE: build add just for testing
             //Events.ForEach(c => WatchedEvents.Add(c));
             LoadingMsg = "Load Complete";
@@ -116,10 +139,11 @@ namespace GW2EventMonitor.ViewModels
         private void SaveExecute(Window w)
         {
             //_es.WatchedEvents = WatchedEvents.ToList<String>();
-            _es.RefreshData(_eventData.Where(x => WatchedEvents.Contains(x.Value.Name)));
+            _es.RefreshData(_eventNames.Where(x => WatchedEvents.Contains(x.Value.Name)));
             _sm.Save(_es);
             if (w != null)
                 w.Close();
         }
+
     }
 }
