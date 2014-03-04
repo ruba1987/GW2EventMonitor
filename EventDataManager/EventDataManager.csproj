@@ -62,6 +62,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0289ba9e-1ffb-4221-801f-60daabae1df7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
       <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
       <Name>GwApiNET</Name>
