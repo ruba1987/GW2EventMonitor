@@ -197,6 +197,10 @@
       <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
       <Name>GwApiNET</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MapDataManager\MapDataManager.csproj">
+      <Project>{1cde19a3-2e45-4e0c-bb6c-e23db50d718e}</Project>
+      <Name>MapDataManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Persistance\Persistance.csproj">
       <Project>{b84b0776-1f84-4590-afcf-4d89df888ebf}</Project>
       <Name>Persistance</Name>
