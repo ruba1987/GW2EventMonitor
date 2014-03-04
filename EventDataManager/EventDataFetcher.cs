@@ -49,7 +49,7 @@ namespace EventDataManager
         public async Task<EntryDictionary<Guid, EventNameEntry>> GetEventNamesAsync(int mapID)
         {
             EntryCollection<EventEntry> x = await GwApi.GetEventsAsync(_bs.WorldID, mapID, null);
-            var y = await GwApi.GetEventNamesAsync();
+            EntryDictionary<Guid, EventNameEntry> y = await GwApi.GetEventNamesAsync();
             HashSet<Guid> z = new HashSet<Guid>();
             foreach (EventEntry p in x)
             {
@@ -70,6 +70,18 @@ namespace EventDataManager
         {
             var x = await GwApi.GetEventNamesAsync();
             return x;
+        }
+
+        public async Task<EntryCollection<EventEntry>> GetEventDetailsAsync()
+        {
+            EntryCollection<EventEntry> eventDetails = await GwApi.GetEventsAsync(_bs.WorldID, -1, null);
+            return eventDetails;
+        }
+
+        public EntryCollection<EventEntry> GetEventDetails()
+        {
+            EntryCollection<EventEntry> eventDetails = GwApi.GetEvents(_bs.WorldID, -1, null);
+            return eventDetails;
         }
     }
 }
