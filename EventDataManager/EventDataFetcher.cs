@@ -22,7 +22,16 @@ namespace EventDataManager
 
         public async Task<EventState> GetEventSate(String eventName, bool bypassCache = true)
         {
-            EntryCollection<EventEntry> x = await GwApi.GetEventsAsync(_bs.WorldID, -1, _es.WatchedEvents.First(a => a.Value == eventName).Key, bypassCache);
+            //Added for debugging a null pointer exception coming from the GWApiNET project
+            EntryCollection<EventEntry> x;
+            try
+            {
+                x = await GwApi.GetEventsAsync(_bs.WorldID, -1, _es.WatchedEvents.First(a => a.Value == eventName).Key, bypassCache);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
             return x.First(a => a.EventId == _es.WatchedEvents.First(n => n.Value == eventName).Key).State;
         }
 
