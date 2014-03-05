@@ -26,6 +26,19 @@ namespace GW2EventMonitor.ViewModels
         #endregion
 
         #region Props
+        // to be used by the tree veiw of events 
+        private Dictionary<MapNameEntry, List<EventNameEntry>> _mapToEvents;
+
+        public Dictionary<MapNameEntry, List<EventNameEntry>> MapToEvents
+        {
+            get { return _mapToEvents; }
+            set {
+                RaisePropertyChanged(() => MapToEvents);
+
+                _mapToEvents = value; }
+        }
+
+        // To be used as a 1:1 mapping of name objects to events
         private List<KeyValuePair<MapNameEntry, EventNameEntry>> _eventsWithNames;
 
         public List<KeyValuePair<MapNameEntry, EventNameEntry>> EventsWithMapNames
@@ -124,6 +137,9 @@ namespace GW2EventMonitor.ViewModels
             _mapNames = await _mf.GetMapNamesAsync();
             Events = _eventNames.Select(x => x.Value.Name).ToList();
             Events.Sort();
+
+            _mapToEvents = _eventDetails.GroupBy(x => x.MapId, y => _eventNames[y.EventId]).ToDictionary(k => _mapNames[k.Key], v => v.ToList<EventNameEntry>());
+
             _eventsWithNames = _eventDetails.Select(x => new KeyValuePair<MapNameEntry, EventNameEntry>(_mapNames[x.MapId], _eventNames[x.EventId])).ToList();
             _eventsWithNames.OrderBy(x => x.Key.Name).ThenBy(y => y.Value.Name);
             //NOTE: build add just for testing
