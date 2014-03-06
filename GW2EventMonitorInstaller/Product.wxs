@@ -54,6 +54,14 @@
       <Component Id="GwApiNET">
         <File Source="$(var.GwApiNET.TargetPath)" />
       </Component>
+
+      <Component Id="Common">
+        <File Source="$(var.Common.TargetPath)" />
+      </Component>
+
+      <Component Id="MapDataManager">
+        <File Source="$(var.MapDataManager.TargetPath)" />
+      </Component>
       
       <ComponentRef Id="cmpD883E62B415FDEF049AE793D6833F540" />
       <ComponentRef Id="cmp1874AB219070404EED322213C6A1A49E" />

@@ -29,6 +29,14 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Name>Common</Name>
+      <Project>{0289ba9e-1ffb-4221-801f-60daabae1df7}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\EventDataManager\EventDataManager.csproj">
       <Name>EventDataManager</Name>
       <Project>{d8ce6156-e40a-44c2-9007-01125f990ef0}</Project>
@@ -48,6 +56,14 @@
     <ProjectReference Include="..\GwApiNET\GwApiNET.csproj">
       <Name>GwApiNET</Name>
       <Project>{1f9349a9-6fbd-4344-b535-82d60d576fca}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\MapDataManager\MapDataManager.csproj">
+      <Name>MapDataManager</Name>
+      <Project>{1cde19a3-2e45-4e0c-bb6c-e23db50d718e}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

@@ -29,9 +29,6 @@ namespace GW2EventMonitor.ViewModels
         #endregion
 
         #region Props
-
-
-
         private bool _isNotiVisible;
 
         public bool IsNotiVisible
@@ -109,7 +106,7 @@ namespace GW2EventMonitor.ViewModels
 
             //TODO this is garbage. It's a hack to get things working for now. This needs to be protected
             if (_bs != null && _bs.WorldID > 0)
-                Task.Factory.StartNew(() => 
+                Task.Factory.StartNew(() =>
                     {
                         InitEvents();
                     });
@@ -118,7 +115,7 @@ namespace GW2EventMonitor.ViewModels
 
         }
 
-        private void InitEvents()
+        private void InitEvents()                              
         {
             if (_es.WatchedEvents != null)
                 foreach (KeyValuePair<Guid, String> entry in _es.WatchedEvents)
@@ -136,7 +133,7 @@ namespace GW2EventMonitor.ViewModels
                 // set to this color and have the "FillColor" set to something else. 
                 // If too many events come in at one time this means nothing.
                 FillColor = _eventActiveColor;
-                if(!IsNotiVisible)
+                if (!IsNotiVisible)
                     IsNotiVisible = true;
             }
         }
