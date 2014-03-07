@@ -77,17 +77,7 @@
       <ComponentRef Id="cmp24CF203EAF05EBB9F15C382858B45471" />
       <ComponentRef Id="cmpF8172DAFDBCF4F86E375D808BE919AEB" />
       <ComponentRef Id="cmp604C6FA31EE146F141C9113BF7661C67" />
-      <ComponentRef Id="cmp82CA78EDD5F67FB505C5E0D2C0417AE3" />
-      <ComponentRef Id="cmpC50A893FFE93343886BCC76460A033FD" />
-      <ComponentRef Id="cmp9EA218E7C59EC2B038BC843FA92DBCAD" />
-      <ComponentRef Id="cmpDD27E13A06A1256C39E462842443116F" />
-      <ComponentRef Id="cmp0AA6F9D129AB1579CA9A67B24C43D85F" />
-      <ComponentRef Id="cmpEC2A48629EE46178C7925B4CA8923215" />
-      <ComponentRef Id="cmp0E3EC4A23AE745CC5FF8D70C1594803B" />
-      <ComponentRef Id="cmp56BA8C6C3CCF08D81A7F0440504E5F73" />
-      <ComponentRef Id="cmp8871E5CF63FEEC4649D54F250A747869" />
-      <ComponentRef Id="cmpB12FB75D0DFABC40F9EEFE25FAEBC8F5" />
-
+      
     </ComponentGroup>
 	</Fragment>
 
@@ -118,67 +108,21 @@
       <File Id="filCC20F8EDA13A4DC1CCDBF52A399CC9BC" KeyPath="yes" Source="$(var.Deployment)\SLF.dll" />
     </Component>
 
-
-    <Component Id="cmp0AA6F9D129AB1579CA9A67B24C43D85F" Guid="{B855026E-8A69-4600-AF51-E5A1FA9137D2}">
-      <File Id="fil2F115B653FE4D7ECC27F0E69F365BE05" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\it\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
-    <Component Id="cmp0E3EC4A23AE745CC5FF8D70C1594803B" Guid="{131897A9-CEA0-4EFD-8F3F-4591E9B15AE3}">
-      <File Id="fil95E7C5E662EB91A1412EE492556BC732" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\ro\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
     <Component Id="cmp24CF203EAF05EBB9F15C382858B45471" Guid="{DBC05782-3BEA-49F8-AED0-CFAFACBEB609}">
       <File Id="filFEEE25397DEAF8D94174BB6C61B86A12" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
     </Component>
-
-    <Component Id="cmp56BA8C6C3CCF08D81A7F0440504E5F73" Guid="{5B1AC606-C6B0-47CB-9040-606E9941DA02}">
-      <File Id="filCEB47A8A4AD81619C7D23E9CA5759EE7" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\ru\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
     <Component Id="cmp604C6FA31EE146F141C9113BF7661C67" Guid="{988BF5A4-C535-4A50-B79A-7C9F6AF3E114}">
       <File Id="filA3BE3BA51ECB63A31302EABAB7580846" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll" />
     </Component>
-
     <Component Id="cmp68BCF2144D013C64F0B310FA5250BA35" Guid="{B09D7971-6CDF-47CC-8928-B0049F46E69A}">
       <File Id="fil9F193D84DB2AFB0B725AF36A6F21BB02" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
     </Component>
-
-    <Component Id="cmp82CA78EDD5F67FB505C5E0D2C0417AE3" Guid="{B63184CC-5905-4048-B159-205E76FB7DAB}">
-      <File Id="fil370D265E4ECC635195CA5384D5BEF24B" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\de\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
-    <Component Id="cmp8871E5CF63FEEC4649D54F250A747869" Guid="{F7547DAA-2E5B-439A-A024-1AD2F81CD976}">
-      <File Id="fil8F9ACCD90D53E5D6C7AB6145DB4A3085" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\sv\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
-    <Component Id="cmp9EA218E7C59EC2B038BC843FA92DBCAD" Guid="{21621CBF-45B1-4673-BD4F-7402AECF5029}">
-      <File Id="fil70A200E6E0D88B2D61D117F08B4EE582" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\fr\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
     <Component Id="cmp9F438A172B65A3437561F6977A32E78E" Guid="{E61C24F5-C052-41B3-B3F6-F90554ACF241}">
       <File Id="filC9B437CEC1E6AB6070AB6C21D9170685" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.dll" />
     </Component>
-
-    <Component Id="cmpB12FB75D0DFABC40F9EEFE25FAEBC8F5" Guid="{9B582A65-9552-46F0-A2ED-7C3D053D4D85}">
-      <File Id="fil1347822D105322E820642194F6B62B2E" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
-    <Component Id="cmpC50A893FFE93343886BCC76460A033FD" Guid="{78A95E84-EC75-4814-9F0E-051EA61D6F0D}">
-      <File Id="filC4082B731DC0B28D2B99642A56733C39" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\es\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
-    <Component Id="cmpDD27E13A06A1256C39E462842443116F" Guid="{3E2274C7-E872-4A31-9A89-994D486FC824}">
-      <File Id="filF9A77B04C527A0A016FC33DDB6AC2691" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\hu\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
     <Component Id="cmpEBBB8F0D57B3A3A57FDFAAC4BEFF8F02" Guid="{DD71C869-D9AC-4336-8F88-23DEA9677715}">
       <File Id="fil0F1AEDB96CC739C1507BD33DC645A6DE" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
     </Component>
-
-    <Component Id="cmpEC2A48629EE46178C7925B4CA8923215" Guid="{4820229C-8186-451C-A160-1CA5F8FC14A7}">
-      <File Id="fil8426B7FD3C177499DA508F001647E9B7" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\pt-BR\Xceed.Wpf.AvalonDock.resources.dll" />
-    </Component>
-
     <Component Id="cmpF8172DAFDBCF4F86E375D808BE919AEB" Guid="{F8255320-196A-4231-ABC9-EE82F32AFB62}">
       <File Id="filBCB84D1E71B504429518A9F6F28A2CAF" KeyPath="yes" Source="$(var.Deployment)\Extended WPF Toolkit Binaries\Xceed.Wpf.DataGrid.dll" />
     </Component>
